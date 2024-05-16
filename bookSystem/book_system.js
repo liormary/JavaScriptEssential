@@ -26,7 +26,9 @@ function showbooks() {
         <p><strong>Book Name:</strong> ${book.name}</p>
         <p><strong>Author Name:</strong> ${book.authorName}</p>
         <p><strong>Book Description:</strong> ${book.bookDescription}</p>
-        <p><strong>No. of Pages:</strong> ${book.pagesNumber} mins</p>`).join('');
+        <p><strong>No. of Pages:</strong> ${book.pagesNumber}</p>
+        <button onclick="deletebook(${index})">Delete</button>` // Include the button inside the template literal
+    ).join('');
 
     document.getElementById('books').innerHTML = booksDiv;
 }
@@ -38,3 +40,7 @@ function clearInputs() {
     document.getElementById('pagesNumber').value = '';
 }
 
+function deletebook(index) {
+    books.splice(index, 1);
+    showbooks();
+}
